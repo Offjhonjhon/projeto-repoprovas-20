@@ -41,8 +41,8 @@ model Tests {
 
 model TeachersDisciplines {
   id           Int         @id @default(autoincrement())
-  teacherId    Int         @unique
-  disciplineId Int         @unique
+  teacherId    Int
+  disciplineId Int
   teacher      Teachers    @relation(fields: [teacherId], references: [id])
   discipline   Disciplines @relation(fields: [disciplineId], references: [id])
 
@@ -63,8 +63,8 @@ model Disciplines {
 }
 
 model Terms {
-  id   Int    @id @default(autoincrement())
-  name String @unique
+  id     Int    @id @default(autoincrement())
+  number String @unique
 
   Disciplines Disciplines[]
 
