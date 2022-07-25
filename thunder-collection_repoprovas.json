@@ -1,0 +1,119 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "repoprovas",
+    "dateExported": "2022-07-25T16:41:45.225Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "0c190f50-c590-447e-b1d3-63be2bb2760f",
+            "name": "authFolder",
+            "containerId": "",
+            "created": "2022-07-24T21:33:49.088Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "603e1025-f6a4-4411-8145-e599ef4a56c0",
+            "name": "testFolder",
+            "containerId": "",
+            "created": "2022-07-25T01:20:03.437Z",
+            "sortNum": 20000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "1bf2f84a-e4a9-46dc-97f6-184867fdca98",
+            "colId": "fc8ee1bb-a754-4c0e-9d4b-b5722f73fa0b",
+            "containerId": "0c190f50-c590-447e-b1d3-63be2bb2760f",
+            "name": "createUser",
+            "url": "{{URL}}sign-up",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2022-07-15T10:56:18.029Z",
+            "modified": "2022-07-24T21:36:32.992Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"email\": \"jjvictorac@gmail.com\",\n    \"password\": \"123412341234\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer"
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ]
+        },
+        {
+            "_id": "ebd0f38c-ab31-4d8f-90b1-8e14932bde2d",
+            "colId": "fc8ee1bb-a754-4c0e-9d4b-b5722f73fa0b",
+            "containerId": "0c190f50-c590-447e-b1d3-63be2bb2760f",
+            "name": "userLogin",
+            "url": "{{URL}}sign-in",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2022-07-15T17:32:28.974Z",
+            "modified": "2022-07-25T13:24:13.485Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"email\": \"jjvictorac@gmail.com\",\n    \"password\": \"1234567\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "94c21404-7347-40ef-a9ab-8b3b11ae5611",
+            "colId": "fc8ee1bb-a754-4c0e-9d4b-b5722f73fa0b",
+            "containerId": "603e1025-f6a4-4411-8145-e599ef4a56c0",
+            "name": "createTest",
+            "url": "{{URL}}test/create",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2022-07-25T01:20:11.391Z",
+            "modified": "2022-07-25T15:40:25.913Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"name\": \"Teste de HTML\",\n    \"pdfUrl\": \"www.teste.com\",\n    \"category\": \"Projeto\",\n    \"discipline\": \"HTML e CSS\",\n    \"teacher\": \"Diego Pinho\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "b9c037d0-13e0-4cfc-90e5-2b00662472ef",
+            "colId": "fc8ee1bb-a754-4c0e-9d4b-b5722f73fa0b",
+            "containerId": "603e1025-f6a4-4411-8145-e599ef4a56c0",
+            "name": "getTest",
+            "url": "{{URL}}test",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2022-07-25T13:55:12.549Z",
+            "modified": "2022-07-25T14:32:15.975Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "3cc1d4d8-8cb6-4f00-b7b1-47bee46d7e37",
+            "colId": "fc8ee1bb-a754-4c0e-9d4b-b5722f73fa0b",
+            "containerId": "603e1025-f6a4-4411-8145-e599ef4a56c0",
+            "name": "getTestTeacher",
+            "url": "{{URL}}test/teacher",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2022-07-25T14:32:26.424Z",
+            "modified": "2022-07-25T14:32:34.863Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}
