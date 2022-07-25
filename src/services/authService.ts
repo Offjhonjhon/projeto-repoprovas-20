@@ -31,6 +31,7 @@ export async function signIn(user: User) {
 
     const token = jwt.sign({ id: verify.id, email: verify.email }, process.env.JWT_SECRET, { expiresIn: "1d" });
 
+    console.log(token);
     // await authRepository.insertSection({ userId: verify.id, token: token });
 
     return {

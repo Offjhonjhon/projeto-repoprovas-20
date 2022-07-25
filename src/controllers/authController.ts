@@ -22,7 +22,8 @@ export async function signIn(req: Request, res: Response) {
 
         const userSignedIn = await authService.signIn(user);
 
-        res.json(new ResponseModel("User signed in successfully", 200, userSignedIn));
+
+        res.status(200).json({ token: userSignedIn.token });
     }
     catch (error) {
         res.status(500).json(new ResponseModel(error.message, 500));
