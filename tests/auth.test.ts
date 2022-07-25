@@ -28,7 +28,6 @@ describe("POST /sign-up", () => {
 
         const userCreated = await userFactory.verifyUser(body);
 
-
         expect(status).toBe(422);
         expect(userCreated).toBeNull();
     });

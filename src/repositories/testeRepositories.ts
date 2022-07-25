@@ -74,7 +74,7 @@ export async function getTests() {
         JOIN "teachersDisciplines" td ON td."disciplineId" = d.id
         JOIN tests t ON t."teacherDisciplineId" = td.id
         JOIN teachers te ON te.id = td."teacherId"
-        JOIN categories c ON c.id = t."categoryId"`;
+        JOIN categories c ON c.id = t."categoryId";`
 
     return tests;
 }

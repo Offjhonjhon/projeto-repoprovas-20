@@ -1,14 +1,16 @@
 import { faker } from '@faker-js/faker';
 import { prisma } from "../../src/config/database.js";
 import { TestCreateInput } from '../../src/schemas/testSchema.js';
+import axios from 'axios';
 
 const categories = ["Projeto", "Prática", "Recuperação"];
-const teachers = ["Diego Pinho", "Bruna Hamori"];
-const disciplines = ["HTML e CSS", "JavaScript", "React", "Humildade", "Planejamento", "Autoconfiança"];
+const teachers = ["Diego Pinho"];
+const disciplines = ["HTML e CSS", "JavaScript", "React"];
+export const notDisciplinesDiego = ["Humildade", "Planejamento", "Autoconfiança"]
 
 export async function createTest() {
     const body = {
-        name: faker.name.firstName(),
+        name: faker.lorem.word(),
         pdfUrl: faker.internet.url(),
         category: categories[Math.floor(Math.random() * categories.length)],
         discipline: disciplines[Math.floor(Math.random() * disciplines.length)],
@@ -17,6 +19,8 @@ export async function createTest() {
 
     return body;
 }
+
+
 
 export async function verifyTest(body: TestCreateInput) {
     const testCreated = await prisma.tests.findMany({
@@ -27,4 +31,11 @@ export async function verifyTest(body: TestCreateInput) {
     })
 
     return testCreated;
+}
+
+export async function insertTest(testsNumber) {
+    for (let i = 0; i < testsNumber; i++) {
+        const body = await createTest();
+        await axios.post(`http://localhost:${process.env.PORT}/test/create`, body);
+    }
 }

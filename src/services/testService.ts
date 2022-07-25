@@ -1,7 +1,7 @@
 import * as testeRepository from "../repositories/testeRepositories.js";
 import verifyTestPossibility from "../utils/verifyTestPossibility.js";
 import * as testeSchema from "../schemas/testSchema.js";
-
+import { AppError } from "../errors/AppError.js";
 
 export type TestCreateData = Omit<testeRepository.Test, "id">;
 
@@ -19,7 +19,12 @@ export async function insertTest(test: testeSchema.TestCreateInput) {
 }
 
 export async function getTests() {
-    return await testeRepository.getTests();
+    const tests = await testeRepository.getTests();
+
+    if (!tests) {
+        throw new AppError("No tests found", 404);
+    }
+    return tests;
 }
 
 export async function getTestsOrderByTeacher() {
